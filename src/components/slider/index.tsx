@@ -3,6 +3,7 @@ import SliderItem from "./components/item";
 import SliderDots from "./components/dots";
 import UseSlider from "./components/hooks/useSlider";
 import React from "react";
+import Controls from "./components/controls";
 
 interface TSliderProps {
   images: Array<string>;
@@ -15,6 +16,8 @@ const Slider = ({ images }: TSliderProps) => {
     onTouchMove,
     onTouchStart,
     setCurrentIndex,
+    onGoRight, 
+    onGoLetf
   } = UseSlider(images?.length - 1);
   return (
     <div
@@ -23,6 +26,7 @@ const Slider = ({ images }: TSliderProps) => {
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
+      <Controls onGoRight={onGoRight} onGoLetf={onGoLetf} />
       {images?.map((image, index) => {
         return (
           <React.Fragment key={index}>

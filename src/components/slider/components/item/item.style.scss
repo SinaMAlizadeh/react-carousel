@@ -1,5 +1,4 @@
 .slide-item {
-  height: 200px;
   min-width: 100%;
   width: 100%;
   display: flex;
@@ -9,6 +8,5 @@
   img {
     width: 100% !important;
     min-width: 100% !important;
-    object-fit: cover;
   }
 }
