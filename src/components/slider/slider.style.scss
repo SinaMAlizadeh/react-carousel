@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   overflow: hidden;
   position: relative;
+  direction: ltr;
   padding: 0;
   width: 100%;
   &__item {
@@ -16,7 +17,6 @@
     img {
       width: 100% !important;
       min-width: 100% !important;
-      object-fit: cover;
     }
   }
   &__dots {
@@ -34,8 +34,9 @@
       background-color: white;
       border-radius: 100px;
       margin: 0 3px;
+      opacity: 0.8;
       &--active {
-        background-color: blue;
+        background-color: gray;
       }
     }
   }

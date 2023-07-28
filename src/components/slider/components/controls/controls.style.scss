@@ -1,10 +1,77 @@
 .slider-control {
   position: absolute;
-  top: 50%;
   display: flex;
-  justify-content: space-between;
-  z-index: 100;
-  width: 100%;
+  align-items: center;
+  width: auto;
+  cursor: pointer;
+  height: 100%;
+  top: 0;
+  bottom: 0;
   font-size: 4rem;
-  margin: 0px;
+  margin: auto auto;
+  z-index: 10;
+}
+
+.slider-control__left {
+  @extend .slider-control;
+  padding-left: 10px;
+}
+
+.slider-control-left__default {
+  align-items: center;
+  background: 0 0;
+  border: 0;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: opacity 0.15s ease;
+  width: 15%;
+  z-index: 1;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  height: 100%;
+}
+.slider-control__right {
+  @extend .slider-control;
+  padding-right: 10px;
+  right: 0;
+}
+
+.slider-control-right__default {
+  align-items: center;
+  background: 0 0;
+  border: 0;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: opacity 0.15s ease;
+  width: 15%;
+  z-index: 1;
+  right: 0;
+
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  height: 100%;
 }

@@ -33,19 +33,21 @@ const UseSlider = (slideCount: number) => {
     setCurrentIndex((prev) => (prev === slideCount ? 0 : prev + 1));
   };
 
-  const onGoLetf = () => {
+  const onGoLeft = () => {
     setCurrentIndex((prev) => (prev === 0 ? slideCount : prev - 1));
   };
 
-
+  const selectIndex = (index: number) => {
+    setCurrentIndex(index);
+  };
   return {
     currentIndex,
     onTouchStart,
     onTouchMove,
     onTouchEnd,
-    setCurrentIndex,
+    selectIndex,
     onGoRight,
-    onGoLetf
+    onGoLeft,
   };
 };
 

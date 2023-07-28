@@ -1,12 +1,12 @@
 interface ISliderDotsProps {
   images: Array<string>;
-  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+  selectIndex: (e: number) => void;
   currentIndex: number;
 }
 
 const SliderDots = ({
   images,
-  setCurrentIndex,
+  selectIndex,
   currentIndex,
 }: ISliderDotsProps) => {
   return (
@@ -19,7 +19,7 @@ const SliderDots = ({
               "slider__dots__item " +
               (index === currentIndex && "slider__dots__item--active")
             }
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => selectIndex(index)}
           ></div>
         ))}
       </div>
