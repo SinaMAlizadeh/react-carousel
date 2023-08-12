@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sources":["../../src/index.ts"],"sourcesContent":["export * from \"./components/slider\";\r\n"],"names":["__exportStar","require","exports"],"mappings":"qFAAoCA,aAAAC,QAAA,uBAAAC"}

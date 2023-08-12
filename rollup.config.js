@@ -3,7 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
-import postcss from "rollup-plugin-postcss";
+import babel from "@rollup/plugin-babel";
 import sass from "rollup-plugin-sass";
 
 const packageJson = require("./package.json");
@@ -12,24 +12,23 @@ export default {
   input: "src/index.ts",
   output: [
     {
-      file: packageJson.main,
+      file: "dist/index.js",
       format: "cjs",
-      sourcemap: true,
-      name: "react-lib",
+      exports: "named",
     },
     {
-      file: packageJson.module,
-      format: "esm",
-      sourcemap: true,
+      file: "dist/index.es.js",
+      format: "es",
     },
   ],
+  external: ["react", "react-dom"], // Add any other external dependencies here
   plugins: [
-    external(),
+    typescript(),
+    babel({ exclude: "node_modules/**", presets: ["@babel/preset-react"] }),
     resolve(),
     commonjs(),
-    typescript({ tsconfig: "./tsconfig.json" }),
+    external(),
     sass(),
-    postcss(),
     terser(),
   ],
 };

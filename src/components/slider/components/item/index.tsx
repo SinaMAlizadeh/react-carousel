@@ -1,3 +1,4 @@
+import React from "react";
 import { objectFit } from "../../../../type";
 import "./item.style.scss";
 interface ISliderItemProps {
@@ -7,14 +8,12 @@ interface ISliderItemProps {
 }
 const SliderItem = ({ image, currentIndex, objectFit }: ISliderItemProps) => {
   return (
-    <>
-      <div
-        className={"slide-item"}
-        style={{ transform: `translate(-${currentIndex * 100}%)` }}
-      >
-        <img src={`${image}`} style={{ objectFit: objectFit }} />
-      </div>
-    </>
+    <div
+      className={"slide-item"}
+      style={{ transform: `translate(-${currentIndex * 100}%)` }}
+    >
+      <img src={`${image}`} style={{ objectFit: objectFit }} />
+    </div>
   );
 };
 

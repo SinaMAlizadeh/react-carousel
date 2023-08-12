@@ -1,3 +1,4 @@
+import React from "react";
 interface ISliderDotsProps {
   images: Array<string>;
   selectIndex: (e: number) => void;

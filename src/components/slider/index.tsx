@@ -1,8 +1,8 @@
+import React from "react";
 import "./slider.style.scss";
 import SliderItem from "./components/item";
 import SliderDots from "./components/dots";
 import UseSlider from "./components/hooks/useSlider";
-import React from "react";
 import Controls from "./components/controls";
 import { objectFit } from "../../type";
 
@@ -14,10 +14,6 @@ interface ISliderProps {
   weight?: string;
   objectFit?: objectFit;
 }
-
-export const TestLeft = () => {
-  return <div>left</div>;
-};
 
 const Slider = ({
   images,
@@ -38,7 +34,7 @@ const Slider = ({
   } = UseSlider(images?.length - 1);
 
   return (
-    <div dir="rtl">
+    <div>
       <div
         className={"slider"}
         onTouchStart={onTouchStart}
