@@ -7,7 +7,7 @@ A simple and reusable slider for React
 The package can be installed via NPM:
 
 ```
-npm i react-simple-slider
+npm i reactjs-simple-slider
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm i react-simple-slider
 Import Slider for usage :
 
 ```js
-import Slider from "react-simple-slider";
+import Slider from "reactjs-simple-slider";
 ```
 
 Define your slider and config :
