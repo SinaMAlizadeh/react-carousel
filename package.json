@@ -1,6 +1,6 @@
 {
   "name": "reactjs-simple-slider",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "A simple react js slider",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,7 +28,10 @@
     "carousel-slider",
     "react-responsive-slider",
     "react-carousel-slider",
-    "responsive"
+    "responsive",
+    "react-typescript-carousel",
+    "react-typescript-slider",
+    "typescript"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
