@@ -1,6 +1,6 @@
 {
   "name": "reactjs-simple-slider",
-  "version": "1.0.31",
+  "version": "1.0.33",
   "description": "A simple react js slider",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

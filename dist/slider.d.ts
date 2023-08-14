@@ -7,8 +7,8 @@ interface ISliderProps {
     leftArrow?: React.ComponentType<any> | string;
     rightArrow?: React.ComponentType<any> | string;
     height?: string;
-    weight?: string;
+    width?: string;
     objectFit?: objectFit;
 }
-declare const Slider: ({ images, leftArrow, rightArrow, height, weight, objectFit, }: ISliderProps) => JSX.Element;
+declare const Slider: ({ images, leftArrow, rightArrow, height, width, objectFit, }: ISliderProps) => JSX.Element;
 export default Slider;

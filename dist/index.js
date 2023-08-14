@@ -93,10 +93,10 @@ var Controls = function (_a) {
 };
 
 var Slider = function (_a) {
-    var images = _a.images, leftArrow = _a.leftArrow, rightArrow = _a.rightArrow, height = _a.height, weight = _a.weight, objectFit = _a.objectFit;
+    var images = _a.images, leftArrow = _a.leftArrow, rightArrow = _a.rightArrow, height = _a.height, width = _a.width, objectFit = _a.objectFit;
     var _b = UseSlider((images === null || images === void 0 ? void 0 : images.length) - 1), currentIndex = _b.currentIndex, onTouchEnd = _b.onTouchEnd, onTouchMove = _b.onTouchMove, onTouchStart = _b.onTouchStart, selectIndex = _b.selectIndex, onGoRight = _b.onGoRight, onGoLeft = _b.onGoLeft;
     return (React__default["default"].createElement("div", null,
-        React__default["default"].createElement("div", { className: "slider", onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, style: { height: height, width: weight } },
+        React__default["default"].createElement("div", { className: "slider", onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, style: { height: height, width: width } },
             React__default["default"].createElement(Controls, { leftArrow: leftArrow, rightArrow: rightArrow, onGoRight: onGoRight, onGoLeft: onGoLeft }), images === null || images === void 0 ? void 0 :
             images.map(function (image, index) {
                 return (React__default["default"].createElement(React__default["default"].Fragment, { key: index },

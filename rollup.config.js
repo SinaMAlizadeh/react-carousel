@@ -25,7 +25,7 @@ export default {
   external: ["react", "react-dom"], // Add any other external dependencies here
   plugins: [
     typescript(),
-    // babel({ exclude: "node_modules/**", presets: ["@babel/preset-react"] }),
+    babel({ exclude: "node_modules/**", presets: ["@babel/preset-react"] }),
     resolve(),
     commonjs(),
     // external(),
