@@ -12,7 +12,7 @@ interface ISliderProps {
   leftArrow?: React.ComponentType<any> | string;
   rightArrow?: React.ComponentType<any> | string;
   height?: string;
-  weight?: string;
+  width?: string;
   objectFit?: objectFit;
 }
 
@@ -21,7 +21,7 @@ const Slider = ({
   leftArrow,
   rightArrow,
   height,
-  weight,
+  width,
   objectFit,
 }: ISliderProps) => {
   const {
@@ -41,7 +41,7 @@ const Slider = ({
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        style={{ height: height, width: weight }}
+        style={{ height: height, width: width }}
       >
         <Controls
           leftArrow={leftArrow}
