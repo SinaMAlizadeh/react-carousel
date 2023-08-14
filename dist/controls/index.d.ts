@@ -1,5 +1,4 @@
 import React from "react";
-import "./controls.style.scss";
 interface ControlsProps {
     onGoRight: () => void;
     onGoLeft: () => void;

@@ -1,6 +1,7 @@
 import React from "react";
-import "./slider.style.scss";
-import { objectFit } from "../../type";
+import "./assets/slider.style.scss";
+import { objectFit } from "./type";
+import "reactjs-simple-slider/dist/assets/slider.style.css";
 interface ISliderProps {
     images: Array<string>;
     leftArrow?: React.ComponentType<any> | string;

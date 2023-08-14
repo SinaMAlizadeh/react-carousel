@@ -1,6 +1,5 @@
 import React from "react";
-import ResolveComponent from "../../../../utility/componentResolver";
-import "./controls.style.scss";
+import ResolveComponent from "../utility/componentResolver";
 
 interface ControlsProps {
   onGoRight: () => void;

@@ -1,6 +1,6 @@
 import React from "react";
-import { objectFit } from "../../../../type";
-import "./item.style.scss";
+import { objectFit } from "../type";
+
 interface ISliderItemProps {
   image: string;
   currentIndex: number;

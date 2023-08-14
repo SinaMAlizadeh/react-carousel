@@ -1,10 +1,11 @@
 import React from "react";
-import "./slider.style.scss";
-import SliderItem from "./components/item";
-import SliderDots from "./components/dots";
-import UseSlider from "./components/hooks/useSlider";
-import Controls from "./components/controls";
-import { objectFit } from "../../type";
+import "./assets/slider.style.scss";
+import SliderItem from "./item/index";
+import SliderDots from "./dots/index";
+import UseSlider from "./hooks/useSlider";
+import Controls from "./controls/index";
+import { objectFit } from "./type";
+import "reactjs-simple-slider/dist/assets/slider.style.css";
 
 interface ISliderProps {
   images: Array<string>;

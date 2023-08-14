@@ -4,7 +4,8 @@ import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import babel from "@rollup/plugin-babel";
-import sass from "rollup-plugin-sass";
+import scss from "rollup-plugin-scss";
+import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
@@ -24,11 +25,13 @@ export default {
   external: ["react", "react-dom"], // Add any other external dependencies here
   plugins: [
     typescript(),
-    babel({ exclude: "node_modules/**", presets: ["@babel/preset-react"] }),
+    // babel({ exclude: "node_modules/**", presets: ["@babel/preset-react"] }),
     resolve(),
     commonjs(),
-    external(),
-    sass(),
-    terser(),
+    // external(),
+    scss({
+      fileName: "assets/slider.style.css",
+    }),
+    // terser(),
   ],
 };
