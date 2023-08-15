@@ -1,6 +1,6 @@
-import { TouchEvent, useState } from "react";
+import { TouchEvent, useEffect, useState } from "react";
 
-const UseSlider = (slideCount: number) => {
+const UseSlider = (slideCount: number, intervalDuration: number) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [touchStart, setTouchStart] = useState<number>();
   const [touchEnd, setTouchEnd] = useState<number>();
@@ -14,6 +14,16 @@ const UseSlider = (slideCount: number) => {
 
   const onTouchMove = (e: TouchEvent<HTMLDivElement>) =>
     setTouchEnd(e.targetTouches[0].clientX);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onGoLeft();
+    }, intervalDuration);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [intervalDuration]);
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;

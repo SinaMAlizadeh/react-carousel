@@ -14,6 +14,7 @@ interface ISliderProps {
   height?: string;
   width?: string;
   objectFit?: objectFit;
+  interval?: number;
 }
 
 const Slider = ({
@@ -23,6 +24,7 @@ const Slider = ({
   height,
   width,
   objectFit,
+  interval = 5000,
 }: ISliderProps) => {
   const {
     currentIndex,
@@ -32,7 +34,7 @@ const Slider = ({
     selectIndex,
     onGoRight,
     onGoLeft,
-  } = UseSlider(images?.length - 1);
+  } = UseSlider(images?.length - 1, interval);
 
   return (
     <div>
