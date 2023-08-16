@@ -5,7 +5,7 @@ import SliderDots from "./dots/index";
 import UseSlider from "./hooks/useSlider";
 import Controls from "./controls/index";
 import { objectFit } from "./type";
-import "reactjs-simple-slider/dist/assets/slider.style.css";
+// import "reactjs-simple-slider/dist/assets/slider.style.css";
 
 interface ISliderProps {
   images: Array<string>;
@@ -15,6 +15,7 @@ interface ISliderProps {
   width?: string;
   objectFit?: objectFit;
   interval?: number;
+  infiniteLoop?: boolean;
 }
 
 const Slider = ({
@@ -23,8 +24,9 @@ const Slider = ({
   rightArrow,
   height,
   width,
+  infiniteLoop,
   objectFit,
-  interval = 5000,
+  interval,
 }: ISliderProps) => {
   const {
     currentIndex,
@@ -34,8 +36,7 @@ const Slider = ({
     selectIndex,
     onGoRight,
     onGoLeft,
-  } = UseSlider(images?.length - 1, interval);
-
+  } = UseSlider(images?.length - 1, interval, infiniteLoop);
   return (
     <div>
       <div

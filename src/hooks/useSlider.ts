@@ -1,9 +1,14 @@
 import { TouchEvent, useEffect, useState } from "react";
 
-const UseSlider = (slideCount: number, intervalDuration: number) => {
+const UseSlider = (
+  slideCount: number,
+  intervalDuration: number = 5000,
+  infiniteLoop: boolean
+) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [touchStart, setTouchStart] = useState<number>();
   const [touchEnd, setTouchEnd] = useState<number>();
+  const [timer, setTimer] = useState<NodeJS.Timer | null>(null);
 
   const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     setTouchEnd(0); // otherwise the swipe is fired even with usual touch events
@@ -16,12 +21,15 @@ const UseSlider = (slideCount: number, intervalDuration: number) => {
     setTouchEnd(e.targetTouches[0].clientX);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      onGoLeft();
-    }, intervalDuration);
+    if (timer === null && infiniteLoop) {
+      const timerId = setInterval(changeIndex, intervalDuration);
+      setTimer(timerId);
+    }
 
     return () => {
-      clearInterval(interval);
+      if (timer !== null) {
+        clearInterval(timer);
+      }
     };
   }, [intervalDuration]);
 
@@ -34,20 +42,39 @@ const UseSlider = (slideCount: number, intervalDuration: number) => {
       isLeftSwipe
         ? setCurrentIndex((prev) => (prev === slideCount ? 0 : prev + 1))
         : setCurrentIndex((prev) => (prev === 0 ? slideCount : prev - 1));
-
     console.log("swipe", isLeftSwipe ? "left" : "right");
     // add your conditional logic here
   };
 
+  const changeIndex = () => {
+    debugger;
+    setCurrentIndex((prev) => (prev === 0 ? slideCount : prev - 1));
+  };
+
   const onGoRight = () => {
+    if (infiniteLoop) {
+      clearInterval(timer);
+      const timerId = setInterval(changeIndex, intervalDuration);
+      setTimer(timerId);
+    }
     setCurrentIndex((prev) => (prev === slideCount ? 0 : prev + 1));
   };
 
   const onGoLeft = () => {
+    if (infiniteLoop) {
+      clearInterval(timer);
+      const timerId = setInterval(changeIndex, intervalDuration);
+      setTimer(timerId);
+    }
     setCurrentIndex((prev) => (prev === 0 ? slideCount : prev - 1));
   };
 
   const selectIndex = (index: number) => {
+    if (infiniteLoop) {
+      clearInterval(timer);
+      const timerId = setInterval(changeIndex, intervalDuration);
+      setTimer(timerId);
+    }
     setCurrentIndex(index);
   };
   return {
