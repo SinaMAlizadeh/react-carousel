@@ -14,6 +14,8 @@ interface ISliderProps {
   height?: string;
   width?: string;
   objectFit?: objectFit;
+  interval?: number;
+  infiniteLoop?: boolean;
 }
 
 const Slider = ({
@@ -22,7 +24,9 @@ const Slider = ({
   rightArrow,
   height,
   width,
+  infiniteLoop,
   objectFit,
+  interval,
 }: ISliderProps) => {
   const {
     currentIndex,
@@ -32,8 +36,7 @@ const Slider = ({
     selectIndex,
     onGoRight,
     onGoLeft,
-  } = UseSlider(images?.length - 1);
-
+  } = UseSlider(images?.length - 1, interval, infiniteLoop);
   return (
     <div>
       <div
