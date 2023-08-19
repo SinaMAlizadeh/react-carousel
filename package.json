@@ -1,7 +1,7 @@
 {
   "name": "reactjs-simple-slider",
-  "version": "1.0.33",
-  "description": "A simple react js slider",
+  "version": "1.1.1",
+  "description": "A simple react js image slider",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",

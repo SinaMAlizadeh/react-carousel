@@ -9,6 +9,8 @@ interface ISliderProps {
     height?: string;
     width?: string;
     objectFit?: objectFit;
+    interval?: number;
+    infiniteLoop?: boolean;
 }
-declare const Slider: ({ images, leftArrow, rightArrow, height, width, objectFit, }: ISliderProps) => JSX.Element;
+declare const Slider: ({ images, leftArrow, rightArrow, height, width, infiniteLoop, objectFit, interval, }: ISliderProps) => JSX.Element;
 export default Slider;

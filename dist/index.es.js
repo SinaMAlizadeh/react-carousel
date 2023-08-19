@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'reactjs-simple-slider/dist/assets/slider.style.css';
 
 var SliderItem = function (_a) {
@@ -14,10 +14,12 @@ var SliderDots = function (_a) {
                 (index === currentIndex && "slider__dots__item--active"), onClick: function () { return selectIndex(index); } })); }))));
 };
 
-var UseSlider = function (slideCount) {
+var UseSlider = function (slideCount, intervalDuration, infiniteLoop) {
+    if (intervalDuration === void 0) { intervalDuration = 5000; }
     var _a = useState(0), currentIndex = _a[0], setCurrentIndex = _a[1];
     var _b = useState(), touchStart = _b[0], setTouchStart = _b[1];
     var _c = useState(), touchEnd = _c[0], setTouchEnd = _c[1];
+    var _d = useState(null), timer = _d[0], setTimer = _d[1];
     var onTouchStart = function (e) {
         setTouchEnd(0); // otherwise the swipe is fired even with usual touch events
         setTouchStart(e.targetTouches[0].clientX);
@@ -26,6 +28,17 @@ var UseSlider = function (slideCount) {
     var onTouchMove = function (e) {
         return setTouchEnd(e.targetTouches[0].clientX);
     };
+    useEffect(function () {
+        if (timer === null && infiniteLoop) {
+            var timerId = setInterval(changeIndex, intervalDuration);
+            setTimer(timerId);
+        }
+        return function () {
+            if (timer !== null) {
+                clearInterval(timer);
+            }
+        };
+    }, [intervalDuration]);
     var onTouchEnd = function () {
         if (!touchStart || !touchEnd)
             return;
@@ -39,13 +52,32 @@ var UseSlider = function (slideCount) {
         console.log("swipe", isLeftSwipe ? "left" : "right");
         // add your conditional logic here
     };
+    var changeIndex = function () {
+        debugger;
+        setCurrentIndex(function (prev) { return (prev === 0 ? slideCount : prev - 1); });
+    };
     var onGoRight = function () {
+        if (infiniteLoop) {
+            clearInterval(timer);
+            var timerId = setInterval(changeIndex, intervalDuration);
+            setTimer(timerId);
+        }
         setCurrentIndex(function (prev) { return (prev === slideCount ? 0 : prev + 1); });
     };
     var onGoLeft = function () {
+        if (infiniteLoop) {
+            clearInterval(timer);
+            var timerId = setInterval(changeIndex, intervalDuration);
+            setTimer(timerId);
+        }
         setCurrentIndex(function (prev) { return (prev === 0 ? slideCount : prev - 1); });
     };
     var selectIndex = function (index) {
+        if (infiniteLoop) {
+            clearInterval(timer);
+            var timerId = setInterval(changeIndex, intervalDuration);
+            setTimer(timerId);
+        }
         setCurrentIndex(index);
     };
     return {
@@ -85,8 +117,8 @@ var Controls = function (_a) {
 };
 
 var Slider = function (_a) {
-    var images = _a.images, leftArrow = _a.leftArrow, rightArrow = _a.rightArrow, height = _a.height, width = _a.width, objectFit = _a.objectFit;
-    var _b = UseSlider((images === null || images === void 0 ? void 0 : images.length) - 1), currentIndex = _b.currentIndex, onTouchEnd = _b.onTouchEnd, onTouchMove = _b.onTouchMove, onTouchStart = _b.onTouchStart, selectIndex = _b.selectIndex, onGoRight = _b.onGoRight, onGoLeft = _b.onGoLeft;
+    var images = _a.images, leftArrow = _a.leftArrow, rightArrow = _a.rightArrow, height = _a.height, width = _a.width, infiniteLoop = _a.infiniteLoop, objectFit = _a.objectFit, interval = _a.interval;
+    var _b = UseSlider((images === null || images === void 0 ? void 0 : images.length) - 1, interval, infiniteLoop), currentIndex = _b.currentIndex, onTouchEnd = _b.onTouchEnd, onTouchMove = _b.onTouchMove, onTouchStart = _b.onTouchStart, selectIndex = _b.selectIndex, onGoRight = _b.onGoRight, onGoLeft = _b.onGoLeft;
     return (React.createElement("div", null,
         React.createElement("div", { className: "slider", onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, style: { height: height, width: width } },
             React.createElement(Controls, { leftArrow: leftArrow, rightArrow: rightArrow, onGoRight: onGoRight, onGoLeft: onGoLeft }), images === null || images === void 0 ? void 0 :
