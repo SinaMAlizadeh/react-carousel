@@ -25,7 +25,6 @@ const UseSlider = (
       const timerId = setInterval(changeIndex, intervalDuration);
       setTimer(timerId);
     }
-
     return () => {
       if (timer !== null) {
         clearInterval(timer);

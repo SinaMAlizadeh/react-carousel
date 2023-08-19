@@ -5,7 +5,7 @@ import SliderDots from "./dots/index";
 import UseSlider from "./hooks/useSlider";
 import Controls from "./controls/index";
 import { objectFit } from "./type";
-// import "reactjs-simple-slider/dist/assets/slider.style.css";
+import "reactjs-simple-slider/dist/assets/slider.style.css";
 
 interface ISliderProps {
   images: Array<string>;
