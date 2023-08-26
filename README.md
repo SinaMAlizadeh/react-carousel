@@ -1,6 +1,6 @@
 # React Simple Image Slider
 
-A simple and reusable image slider for React
+A simple and reusable image slider for React ([Demo](https://codesandbox.io/s/react-js-images-simple-slider-qlyfsy "Demo"))
 
 ## Installation
 
@@ -15,7 +15,7 @@ npm i reactjs-simple-slider
 Import Slider for usage :
 
 ```js
-import Slider from "reactjs-simple-slider";
+import { Slider } from "reactjs-simple-slider";
 ```
 
 Define your slider and config :
